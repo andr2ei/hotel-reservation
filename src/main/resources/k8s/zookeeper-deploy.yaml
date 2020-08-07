@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper
+spec:
+  selector:
+    matchLabels:
+      run: zookeeper-deploy
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: zookeeper-deploy
+    spec:
+      containers:
+      - name: zookeeper-container
+        image: confluent/zookeeper
